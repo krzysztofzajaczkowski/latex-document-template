@@ -1,0 +1,24 @@
+\documentclass{report}
+
+%Add packages definitions
+\usepackage{float}			%package to use [H] figure option
+\usepackage{graphicx} 
+\graphicspath{ {./chapter-1/images/} {./chapter-2/images/} }
+
+\begin{document}
+
+\input{meta/abstract.tex}
+
+%Add table of contents
+\tableofcontents
+
+%Add sections of the document
+\include{chapter-1/chapter}
+\include{chapter-2/chapter}
+
+%Add list of graphics
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\end{document}
+%EOF
