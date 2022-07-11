@@ -1,0 +1,20 @@
+name: "Build document"
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: document.tex
+      - run: cat document.log
+      - name: Publish document
+        uses: actions/upload-artifact@v2
+        with:
+          name: Document
+          path: document.pdf
